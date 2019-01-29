@@ -3,17 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-	android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-	<fragment
-		android:name="note.TitlesFragment"
-		android:id="@+id/titles"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-	/>
-	<FrameLayout
-		android:id="@+id/note_container"
-		android:layout_weight="@dimen/abc_text_size_body_1_material"
-		android:layout_width="0px"
-		android:layout_height="match_parent"/>
+    <fragment
+        android:name="note.TitlesFragment"
+        android:id="@+id/titles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+	<include
+		android:id="@+id/toolbar"
+		layout="@layout/toolbar" />
 </LinearLayout>

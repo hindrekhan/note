@@ -19,12 +19,16 @@ namespace note
         {
             base.OnCreate(savedInstanceState);
 
-            var playId = Intent.Extras.GetInt("current_play_id", 0);
+            if (Resources.Configuration.Orientation == Android.Content.Res.Orientation.Landscape)
+            {
+                Finish();
+            }
 
-            var detailsFrag = NoteFragment.NewInstance(playId);
+            var playId = Intent.Extras.GetInt("current_play_id", 0);
+            var noteFrag = NoteFragment.NewInstance(playId);
 
             FragmentManager.BeginTransaction()
-                           .Add(Android.Resource.Id.Content, detailsFrag)
+                           .Add(Android.Resource.Id.Content, noteFrag)
                            .Commit();
         }
     }

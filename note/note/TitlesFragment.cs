@@ -17,6 +17,7 @@ namespace note
     {
         int selectedPlayId;
         DatabaseService dbService;
+        bool showingTwoFragments;
 
         public TitlesFragment()
         {
@@ -35,13 +36,23 @@ namespace note
                 items.Add(note.Title);
             }
 
-            ListAdapter = new ArrayAdapter<String>(Activity,
+            ListAdapter = new ArrayAdapter(Activity,
                 Android.Resource.Layout.SimpleListItemActivated1,
                 items);
 
             if (savedInstanceState != null)
             {
                 selectedPlayId = savedInstanceState.GetInt("current_play_id", 0);
+            }
+
+            var noteContainer = Activity.FindViewById(Resource.Id.note_container);
+            showingTwoFragments = noteContainer != null &&
+                                  noteContainer.Visibility == ViewStates.Visible;
+
+            if (showingTwoFragments)
+            {
+                ListView.ChoiceMode = ChoiceMode.Single;
+                ShowNote(selectedPlayId);
             }
         }
 
@@ -53,14 +64,36 @@ namespace note
 
         public override void OnListItemClick(ListView l, View v, int position, long id)
         {
-            ShowPlayQuote(position);
+            ShowNote(position);
         }
 
-        private void ShowPlayQuote(int playId)
+        private void ShowNote(int playId)
         {
-            var intent = new Intent(Activity, typeof(NoteActivity));
-            intent.PutExtra("current_play_id", playId);
-            StartActivity(intent);
+            selectedPlayId = playId;
+            if (showingTwoFragments)
+            {
+                ListView.SetItemChecked(selectedPlayId, true);
+
+                var noteFragment = FragmentManager.FindFragmentById(Resource.Id.note_container) as NoteFragment;
+
+                if (noteFragment == null || noteFragment.PlayId != playId)
+                {
+                    var container = Activity.FindViewById(Resource.Id.note_container);
+                    var noteFrag = NoteFragment.NewInstance(selectedPlayId);
+
+                    FragmentTransaction ft = FragmentManager.BeginTransaction();
+                    ft.Replace(Resource.Id.note_container, noteFrag);
+                    ft.AddToBackStack(null);
+                    ft.SetTransition(FragmentTransit.FragmentFade);
+                    ft.Commit();
+                }
+            }
+            else
+            {
+                var intent = new Intent(Activity, typeof(NoteActivity));
+                intent.PutExtra("current_play_id", playId);
+                StartActivity(intent);
+            }
         }
     }
 }
