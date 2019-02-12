@@ -2,21 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+    android:orientation="vertical"
 	android:layout_width="match_parent"
     android:layout_height="match_parent">
 	<include
 		android:id="@+id/toolbar"
-		layout="@layout/toolbar" />
-	<fragment
-		android:name="note.TitlesFragment"
-		android:id="@+id/titles"
-		android:layout_width="600px"
+		layout="@layout/toolbar"/>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-	/>
-	<FrameLayout
-		android:id="@+id/note_container"
-		android:layout_weight="1"
-		android:layout_width="0px"
-		android:layout_height="match_parent"/>
+		android:id="@+id/linearLayout1">
+			<fragment
+			android:name="note.TitlesFragment"
+			android:id="@+id/titles"
+			android:layout_width="600px"
+			android:layout_height="match_parent"/>
+			<FrameLayout
+			android:id="@+id/note_container"
+			android:layout_weight="1"
+			android:layout_width="0px"
+			android:layout_height="match_parent"/>
+	</LinearLayout>
+	
 </LinearLayout>
