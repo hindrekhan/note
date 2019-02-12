@@ -9,7 +9,7 @@
     </style>
 
 
-  <style name="MyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+  <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
     <item name="colorPrimary">#1e2366</item>
     <item name="colorPrimaryDark">#333333</item>
     <item name="colorAccent">#FFCC00</item>

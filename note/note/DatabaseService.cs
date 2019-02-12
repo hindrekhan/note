@@ -45,6 +45,7 @@ namespace note
         public void CreateTableWithData()
         {
             db.CreateTable<Note>();
+
             if (db.Table<Note>().Count() == 0)
             {
                 var newNotes = new Note();

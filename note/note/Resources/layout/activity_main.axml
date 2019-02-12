@@ -5,12 +5,12 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+	<include
+		android:id="@+id/toolbar"
+		layout="@layout/toolbar"/>
     <fragment
         android:name="note.TitlesFragment"
         android:id="@+id/titles"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-	<include
-		android:id="@+id/toolbar"
-		layout="@layout/toolbar" />
 </LinearLayout>

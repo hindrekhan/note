@@ -2,7 +2,26 @@
 <Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100px"
+	
     android:minHeight="?android:attr/actionBarSize"
     android:background="?android:attr/colorPrimary"
-    android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
+    android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar">
+	<ImageView
+		android:src="@drawable/newicon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/newButton"/>
+	<ImageView
+		android:src="@drawable/editicon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/editButton" />
+	<ImageView
+		android:src="@drawable/deleteicon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/deleteButton" />
+
+
+</Toolbar>
