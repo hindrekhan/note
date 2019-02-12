@@ -16,6 +16,7 @@ namespace note
     public class NoteFragment : Fragment
     {
         public int PlayId => Arguments.GetInt("current_play_id", 0);
+        public static int staticPlayId { get; set; }
         DatabaseService dbService;
 
         public static NoteFragment NewInstance (int playId)
@@ -38,6 +39,8 @@ namespace note
             {
                 return null;
             }
+
+            staticPlayId = PlayId;
 
             var textView = new TextView(Activity);
             var padding = Convert.ToInt32(

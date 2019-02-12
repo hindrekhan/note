@@ -44,16 +44,20 @@ namespace note
 
         public void CreateTableWithData()
         {
+            
             db.CreateTable<Note>();
+            db.DeleteAll<Note>();
 
             if (db.Table<Note>().Count() == 0)
             {
                 var newNotes = new Note();
                 newNotes.Title = "asdbf";
                 newNotes.Content = "123";
+                newNotes.Id = 1;
                 db.Insert(newNotes);
                 newNotes.Title = "11111";
                 newNotes.Content = "laaa";
+                newNotes.Id = 2;
                 db.Insert(newNotes);
             }
         }
@@ -67,7 +71,9 @@ namespace note
 
         public void RemoveNote(Note note)
         {
-            db.Delete(note);
+            db.Delete<Note>(note.Id);
+            var a = GetAllNotes();
+            var b = 0;
         }
     }
 }

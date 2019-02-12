@@ -40,8 +40,14 @@ namespace note
 
         private void DeleteButton_Click(object sender, System.EventArgs e)
         {
-            var a = 0;
-            var b = a;
+            if (Resources.Configuration.Orientation == Android.Content.Res.Orientation.Landscape)
+            {
+                DatabaseService dbService = new DatabaseService();
+
+                var item = dbService.GetAllNotes()[NoteFragment.staticPlayId];
+
+                dbService.RemoveNote(item);
+            }
         }
 
         private void EditButton_Click(object sender, System.EventArgs e)
