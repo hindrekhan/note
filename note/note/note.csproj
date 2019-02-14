@@ -63,7 +63,9 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNoteActivity.cs" />
     <Compile Include="DatabaseService.cs" />
+    <Compile Include="EditNoteActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="NoteActivity.cs" />
@@ -139,6 +141,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_addnote.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout-land\toolbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_edit.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout-land\activity_edit.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

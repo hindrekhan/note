@@ -15,6 +15,10 @@ namespace note
     [Activity(Label = "NoteActivity")]
     public class NoteActivity : Activity
     {
+        Note note;
+        EditText title;
+        EditText content;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,12 +28,34 @@ namespace note
                 Finish();
             }
 
-            var playId = Intent.Extras.GetInt("current_play_id", 0);
-            var noteFrag = NoteFragment.NewInstance(playId);
+            SetContentView(Resource.Layout.activity_edit);
 
-            FragmentManager.BeginTransaction()
-                           .Add(Android.Resource.Id.Content, noteFrag)
-                           .Commit();
+            var playId = Intent.Extras.GetInt("current_play_id", 0);
+
+            var dbService = new DatabaseService();
+            note = dbService.GetAllNotes()[playId];
+
+
+            title = FindViewById<EditText>(Resource.Id.title);
+            content = FindViewById<EditText>(Resource.Id.content);
+        
+            title.Text = note.Title;
+            content.Text = note.Content;
+
+            var addButton = FindViewById<ImageView>(Resource.Id.buttonAdd);
+            addButton.Click += AddButton_Click;
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            DatabaseService dbService = new DatabaseService();
+
+            note.Content = content.Text;
+            note.Title = title.Text;
+
+            dbService.UpdateNote(note);
+ 
+            Finish();
         }
     }
 }

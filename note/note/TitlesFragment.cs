@@ -28,17 +28,7 @@ namespace note
         {
             base.OnActivityCreated(savedInstanceState);
 
-            var notes = dbService.GetAllNotes();
-
-            List<string> items = new List<string>();
-            foreach (var note in notes)
-            {
-                items.Add(note.Title);
-            }
-
-            ListAdapter = new ArrayAdapter(Activity,
-                Android.Resource.Layout.SimpleListItemActivated1,
-                items);
+            UpdateTitles();
 
             if (savedInstanceState != null)
             {
@@ -94,6 +84,21 @@ namespace note
                 intent.PutExtra("current_play_id", playId);
                 StartActivity(intent);
             }
+        }
+
+        public void UpdateTitles()
+        {
+            var notes = dbService.GetAllNotes();
+
+            List<string> items = new List<string>();
+            foreach (var note in notes)
+            {
+                items.Add(note.Title);
+            }
+
+            ListAdapter = new ArrayAdapter(Activity,
+                Android.Resource.Layout.SimpleListItemActivated1,
+                items);
         }
     }
 }

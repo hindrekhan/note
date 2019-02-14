@@ -7,6 +7,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes; 
 using Microsoft.AppCenter.Distribute;
+using Android.Content;
 
 namespace note
 {
@@ -26,16 +27,29 @@ namespace note
             dbService.CreateTableWithData();
 
             var newButton = FindViewById<ImageView>(Resource.Id.newButton);
-            var editButton = FindViewById<ImageView>(Resource.Id.editButton);
-            var deleteButton = FindViewById<ImageView>(Resource.Id.deleteButton);
-
             newButton.Click += NewButton_Click;
-            editButton.Click += EditButton_Click;
-            deleteButton.Click += DeleteButton_Click;
+
+            if (Resources.Configuration.Orientation == Android.Content.Res.Orientation.Landscape)
+            {
+                var editButton = FindViewById<ImageView>(Resource.Id.editButton);
+                var deleteButton = FindViewById<ImageView>(Resource.Id.deleteButton);
+
+                editButton.Click += EditButton_Click;
+                deleteButton.Click += DeleteButton_Click;
+            }
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
             ActionBar.Title = "note";
+        }
+
+        protected override void OnPostResume()
+        {
+            base.OnPostResume();
+
+            var titlesFrag = FragmentManager.FindFragmentById<TitlesFragment>(Resource.Id.titles);
+
+            titlesFrag.UpdateTitles();
         }
 
         private void DeleteButton_Click(object sender, System.EventArgs e)
@@ -47,17 +61,35 @@ namespace note
                 var item = dbService.GetAllNotes()[NoteFragment.staticPlayId];
 
                 dbService.RemoveNote(item);
+
+                var titlesFrag = FragmentManager.FindFragmentById<TitlesFragment>(Resource.Id.titles);
+
+                titlesFrag.UpdateTitles();
             }
         }
 
         private void EditButton_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            if (Resources.Configuration.Orientation == Android.Content.Res.Orientation.Landscape)
+            {
+                DatabaseService dbService = new DatabaseService();
+
+                var item = dbService.GetAllNotes()[NoteFragment.staticPlayId];
+
+                dbService.RemoveNote(item);
+
+                var titlesFrag = FragmentManager.FindFragmentById<TitlesFragment>(Resource.Id.titles);
+
+                var intent = new Intent(this, typeof(NoteActivity));
+                intent.PutExtra("current_play_id", NoteFragment.staticPlayId);
+                StartActivity(intent);
+            }
         }
 
         private void NewButton_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            var intent = new Intent(this, typeof(AddNoteActivity));
+            StartActivity(intent);
         }
     }
 }

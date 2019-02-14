@@ -44,9 +44,7 @@ namespace note
 
         public void CreateTableWithData()
         {
-            
             db.CreateTable<Note>();
-            db.DeleteAll<Note>();
 
             if (db.Table<Note>().Count() == 0)
             {
@@ -72,8 +70,6 @@ namespace note
         public void RemoveNote(Note note)
         {
             db.Delete<Note>(note.Id);
-            var a = GetAllNotes();
-            var b = 0;
         }
     }
 }

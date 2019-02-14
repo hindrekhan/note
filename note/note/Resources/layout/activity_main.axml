@@ -13,5 +13,6 @@
 		android:name="note.TitlesFragment"
 		android:id="@+id/titles"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent" />
+		android:layout_height="match_parent"
+		android:tag="titlesFrag" />
 </LinearLayout>
