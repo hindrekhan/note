@@ -31,10 +31,8 @@ namespace note
 
             if (Resources.Configuration.Orientation == Android.Content.Res.Orientation.Landscape)
             {
-                var editButton = FindViewById<ImageView>(Resource.Id.editButton);
                 var deleteButton = FindViewById<ImageView>(Resource.Id.deleteButton);
 
-                editButton.Click += EditButton_Click;
                 deleteButton.Click += DeleteButton_Click;
             }
 

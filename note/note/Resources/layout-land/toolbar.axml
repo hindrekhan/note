@@ -12,11 +12,6 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/newButton"/>
 	<ImageView
-		android:src="@drawable/editicon"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:id="@+id/editButton" />
-	<ImageView
 		android:src="@drawable/deleteicon"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

@@ -2246,26 +2246,26 @@ namespace note
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02006d
-			public const int avd_hide_password_1 = 2130837613;
-			
 			// aapt resource value: 0x7f02006e
-			public const int avd_hide_password_2 = 2130837614;
+			public const int avd_hide_password_1 = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int avd_hide_password_3 = 2130837615;
+			public const int avd_hide_password_2 = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int avd_hide_password_3 = 2130837616;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020070
-			public const int avd_show_password_1 = 2130837616;
-			
 			// aapt resource value: 0x7f020071
-			public const int avd_show_password_2 = 2130837617;
+			public const int avd_show_password_1 = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int avd_show_password_3 = 2130837618;
+			public const int avd_show_password_2 = 2130837618;
+			
+			// aapt resource value: 0x7f020073
+			public const int avd_show_password_3 = 2130837619;
 			
 			// aapt resource value: 0x7f020055
 			public const int deleteicon = 2130837589;
@@ -2321,11 +2321,11 @@ namespace note
 			// aapt resource value: 0x7f020066
 			public const int notification_icon_background = 2130837606;
 			
-			// aapt resource value: 0x7f02006b
-			public const int notification_template_icon_bg = 2130837611;
-			
 			// aapt resource value: 0x7f02006c
-			public const int notification_template_icon_low_bg = 2130837612;
+			public const int notification_template_icon_bg = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int notification_template_icon_low_bg = 2130837613;
 			
 			// aapt resource value: 0x7f020067
 			public const int notification_tile_bg = 2130837607;
@@ -2334,10 +2334,13 @@ namespace note
 			public const int notify_panel_notification_icon_bg = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int tooltip_frame_dark = 2130837609;
+			public const int saveicon = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int tooltip_frame_light = 2130837610;
+			public const int tooltip_frame_dark = 2130837610;
+			
+			// aapt resource value: 0x7f02006b
+			public const int tooltip_frame_light = 2130837611;
 			
 			static Drawable()
 			{
@@ -2514,8 +2517,8 @@ namespace note
 			// aapt resource value: 0x7f080060
 			public const int default_activity_button = 2131230816;
 			
-			// aapt resource value: 0x7f0800b6
-			public const int deleteButton = 2131230902;
+			// aapt resource value: 0x7f0800b5
+			public const int deleteButton = 2131230901;
 			
 			// aapt resource value: 0x7f080098
 			public const int design_bottom_sheet = 2131230872;
@@ -2534,9 +2537,6 @@ namespace note
 			
 			// aapt resource value: 0x7f080020
 			public const int disableHome = 2131230752;
-			
-			// aapt resource value: 0x7f0800b5
-			public const int editButton = 2131230901;
 			
 			// aapt resource value: 0x7f08007e
 			public const int edit_query = 2131230846;
@@ -2628,14 +2628,14 @@ namespace note
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800b9
-			public const int masked = 2131230905;
+			// aapt resource value: 0x7f0800b8
+			public const int masked = 2131230904;
 			
 			// aapt resource value: 0x7f0800a7
 			public const int media_actions = 2131230887;
 			
-			// aapt resource value: 0x7f0800b7
-			public const int message = 2131230903;
+			// aapt resource value: 0x7f0800b6
+			public const int message = 2131230902;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2901,8 +2901,8 @@ namespace note
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800b8
-			public const int visible = 2131230904;
+			// aapt resource value: 0x7f0800b7
+			public const int visible = 2131230903;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;
