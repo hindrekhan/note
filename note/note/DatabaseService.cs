@@ -22,7 +22,7 @@ namespace note
         {
             string dbPath = Path.Combine(System.Environment.GetFolderPath(
                 System.Environment.SpecialFolder.Personal),
-                "mydatabase.db1");
+                "mydatabase.db2");
 
             db = new SQLiteConnection(dbPath);
         }
