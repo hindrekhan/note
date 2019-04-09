@@ -44,6 +44,18 @@ namespace note
 
             var addButton = FindViewById<ImageView>(Resource.Id.buttonAdd);
             addButton.Click += AddButton_Click;
+
+            var delButton = FindViewById<ImageView>(Resource.Id.buttonEditDel);
+            delButton.Click += DelButton_Click;
+        }
+
+        private void DelButton_Click(object sender, EventArgs e)
+        {
+            DatabaseService dbService = new DatabaseService();
+
+            dbService.RemoveNote(note);
+
+            Finish();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
