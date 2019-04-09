@@ -49,7 +49,14 @@ namespace note
 
             textView.SetPadding(padding, padding, padding, padding);
             textView.TextSize = 24;
-            textView.Text = dbService.GetAllNotes().ElementAt(PlayId).Content;
+            try
+            {
+                textView.Text = dbService.GetAllNotes().ElementAt(PlayId).Content;
+            }
+            catch
+            {
+
+            }
 
             var scroller = new ScrollView(Activity);
             scroller.AddView(textView);

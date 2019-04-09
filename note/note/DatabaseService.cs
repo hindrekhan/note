@@ -46,7 +46,7 @@ namespace note
         {
             db.CreateTable<Note>();
 
-            if (db.Table<Note>().Count() == 0)
+            /*if (db.Table<Note>().Count() == 0)
             {
                 var newNotes = new Note();
                 newNotes.Title = "asdbf";
@@ -57,7 +57,7 @@ namespace note
                 newNotes.Content = "laaa";
                 newNotes.Id = 2;
                 db.Insert(newNotes);
-            }
+            }*/
         }
 
         public List<Note> GetAllNotes()
