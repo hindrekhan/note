@@ -6,7 +6,7 @@
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="#addb70">
+	android:background="#ffd1ffaf">
 	<include
 		android:id="@+id/toolbar"
 		layout="@layout/toolbar"/>
@@ -16,5 +16,5 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:tag="titlesFrag" 
-		android:background="#addb70"/>
+		android:background="#ffd1ffaf"/>
 </LinearLayout>
